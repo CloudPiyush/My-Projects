@@ -1,0 +1,81 @@
+
+# Real-Time Face Detection App
+
+Welcome to the Real-Time Face Detection App! This project uses Python and OpenCV to detect faces in real-time from a webcam feed.
+
+## Features
+
+- **Real-Time Detection**: Captures video feed from the webcam and processes it in real-time.
+- **Face Detection**: Utilizes Haar Cascade Classifier to detect faces.
+- **Dynamic Visualization**: Highlights detected faces with colorful rectangles.
+
+## Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/CloudPiyush/Face Detector.git
+   cd real-time-face-detection
+   ```
+
+2. **Install Dependencies**:
+   Make sure you have Python and pip installed. Then, install the required packages:
+   ```bash
+   pip install opencv-python
+   ```
+
+3. **Download Haar Cascade File**:
+   Download the `haarcascade_frontalface_default.xml` file from [OpenCV's GitHub repository](https://github.com/opencv/opencv/tree/master/data/haarcascades) and place it in the project directory.
+
+## Usage
+
+1. **Run the Application**:
+   ```bash
+   python face_detection.py
+   ```
+
+2. **How It Works**:
+   - The app captures video from the webcam.
+   - Converts each frame to grayscale for faster processing.
+   - Detects faces and draws rectangles around them with random colors.
+
+## Code Overview
+
+Here's a brief overview of the main script:
+
+```python
+import cv2
+from random import randrange
+
+# Load pre-trained face data
+Trained_Face_Data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+# Capture video from webcam
+Web_Cam = cv2.VideoCapture(0)
+
+while True:
+    Frame_red, Frame = Web_Cam.read()
+    Grayscaled_Image = cv2.cvtColor(Frame, cv2.COLOR_BGR2GRAY)
+    Detect_Face = Trained_Face_Data.detectMultiScale(Grayscaled_Image)
+
+    for (X, Y, W, H) in Detect_Face:
+        cv2.rectangle(Frame, (X, Y), (X + W, Y + H), (randrange(256), randrange(256), randrange(256)), 4)
+
+    cv2.imshow('Real-Time Face Detector', Frame)
+    cv2.waitKey(1)
+```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or suggestions, feel free to reach out to me at [your-email@example.com](mailto:your-email@example.com).
+
+---
+
+Feel free to customize this README file to better fit your project! 😊
