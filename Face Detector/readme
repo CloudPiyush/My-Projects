@@ -13,7 +13,7 @@ Welcome to the Real-Time Face Detection App! This project uses Python and OpenCV
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/CloudPiyush/Face Detector.git
+   git clone https://github.com/CloudPiyush/My-Projects/tree/local/Face%20Detector.git
    cd real-time-face-detection
    ```
 
